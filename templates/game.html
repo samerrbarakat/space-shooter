@@ -125,6 +125,31 @@
     </div>
 
     <script>
+        let sessionId = null;
+        const sessionStart = Date.now();
+        const clientTag = (localStorage.getItem('clientTag') ?? crypto.randomUUID().slice(0,8));
+        localStorage.setItem('clientTag', clientTag);
+        fetch('/api/session/start', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ clientTag })
+        }).then(r => r.json()).then(d => { sessionId = d.sessionId; });
+        let shotsFired = 0;
+        let enemiesDestroyed = 0;
+
+        window.addEventListener('beforeunload', () => {
+        if (!sessionId) return;
+        const data = {
+            sessionId,
+            score: score,
+            shotsFired,
+            enemiesDestroyed,
+            durationMs: Date.now() - sessionStart
+        };
+        navigator.sendBeacon('/api/session/end', new Blob([JSON.stringify(data)], {type:'application/json'}));
+        });
+
+
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const player = { x: 380, y: 520, width: 40, height: 40, speed: 5  };
@@ -199,6 +224,8 @@
             if (now - player.lastShot > player.shootCooldown) {
                 bullets.push({ x: player.x + player.width/2 - 2, y: player.y, width: 4, height: 15, speed: 5 });
                 player.lastShot = now;
+                shotsFired++;
+
             }
         }
 
@@ -272,6 +299,7 @@
                     // remove both; add score; make particles
                     bullets.splice(i,1);
                     const e = enemies.splice(j,1)[0];
+                    enemiesDestroyed++;
                     score += 10;
                     createExplosion(e.x + e.width/2, e.y + e.height/2, '#00ff88');
                     break outer;
@@ -310,11 +338,31 @@
                 ctx.shadowBlur = 0;
             });
         }
+        document.addEventListener('keydown', (e) => {
+        if (e.key === 'g') {
+            console.log('DEBUG: forcing endGame');
+            endGame();
+        }
+        });
+
         function endGame() {
             isGameOver = true;
             // show overlay (DOM)
             document.getElementById('finalScore').textContent = score;
             document.getElementById('gameOver').style.display = 'block';
+            if (sessionId) {
+                fetch('/api/session/end', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({
+                    sessionId,
+                    score: score,
+                    shotsFired,
+                    enemiesDestroyed,
+                    durationMs: Date.now() - sessionStart
+                })
+                });
+        }
         }
         function createExplosion(x, y, color) {
             for (let i = 0; i < 15; i++) {
