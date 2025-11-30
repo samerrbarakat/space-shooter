@@ -78,14 +78,18 @@ import os
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB"),
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
-    }
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'space-shooter-fb',
+        'USER': 'astronaut',
+        'PASSWORD': 'space123!!',
+        'HOST': 'spaceshootersqlserver.database.windows.net',
+        'PORT': '',
+        'OPTIONS': {
+            "driver": "ODBC Driver 18 for SQL Server",  # or keep 17 if you prefer
+            "Encrypt": "yes",                            # required by Azure SQL    
+            },
+}
 }
 
 # Password validation
