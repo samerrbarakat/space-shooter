@@ -1,5 +1,5 @@
 """
-URL configuration for gamesite project.
+URL configuration for project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -14,15 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from adminanalytics import views as aa
+
+# global 
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 urlpatterns = [
-    path("admin/analytics/", aa.admin_dashboard, name="admin-dashboard"),
-
     path('admin/', admin.site.urls),
-    path("", TemplateView.as_view(template_name="game.html")),  # serves your game
-    path("api/session/start", aa.session_start),
-    path("api/session/end",   aa.session_end),
+    path("game/", TemplateView.as_view(template_name="game.html")),  # serves your game
 ]
