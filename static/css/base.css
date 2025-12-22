@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #111;
+  color: #fff;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ddd;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.nav-links .btn {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+.page {
+  padding: 16px;
+  min-height: calc(100vh - 120px);
+}
+.page { display: flex; justify-content: center; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #0c0c0c;
+  color: #aaa;
+}
+
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+.icon-link img:hover {
+  opacity: 1;
+}

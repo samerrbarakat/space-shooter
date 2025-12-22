@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Space Shooter{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+  <!-- Top Navbar -->
+     {% comment %}
+    <header class="navbar">
+    <a class="brand" href="{% url 'home' %}">
+      <img class="logo" src="{% static 'img/logo.png' %}" alt="Space Shooter logo">
+      <span class="brand-text">Space Shooter</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'leaderboard' %}">Leaderboard</a>
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'contact' %}">Contact</a>
+      <a class="btn" href="{% url 'logout' %}">Logout</a>
+    </nav>
+  </header>
+  {% endcomment %}
+
+  <header class="navbar">
+    <a class="brand" href="">
+      <img class="logo" src="" alt="Space Shooter logo">
+      <span class="brand-text">Space Shooter</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="">Home</a>
+      <a href="">Leaderboard</a>
+      <a href="">Profile</a>
+      <a href="">Contact</a>
+      <a class="btn" href="">Logout</a>
+    </nav>
+  </header>
+  <!-- Main page content -->
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      © {% now "Y" %} Samer Barakat. All rights reserved.
+    </div>
+
+    <div class="footer-right">
+      <a class="icon-link" href="https://github.com/samerrbarakat" target="_blank" rel="noopener">
+        <img src="" alt="GitHub">
+      </a>
+
+      <a class="icon-link" href="https://linkedin.com/in/samerrbarakat" target="_blank" rel="noopener">
+        <img src="" alt="LinkedIn">
+      </a>
+    </div>
+  </footer>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
