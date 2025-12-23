@@ -4,18 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}Space Shooter{% endblock %}</title>
-
+<title>{% block title %}Space Shooter{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Stalinist+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
   {% block extra_css %}{% endblock %}
 </head>
 
 <body>
   <!-- Top Navbar -->
      {% comment %}
-    <header class="navbar">
+    <header class="navbar"> 
     <a class="brand" href="{% url 'home' %}">
-      <img class="logo" src="{% static 'img/logo.png' %}" alt="Space Shooter logo">
+      <img class="logo" src="{% static 'img/title.png' %}" alt="Space Shooter logo">
       <span class="brand-text">Space Shooter</span>
     </a>
 
@@ -31,8 +34,7 @@
 
   <header class="navbar">
     <a class="brand" href="">
-      <img class="logo" src="" alt="Space Shooter logo">
-      <span class="brand-text">Space Shooter</span>
+        <span class="brand-text">Space Shooter 🚀</span>
     </a>
 
     <nav class="nav-links">
@@ -56,12 +58,16 @@
 
     <div class="footer-right">
       <a class="icon-link" href="https://github.com/samerrbarakat" target="_blank" rel="noopener">
-        <img src="" alt="GitHub">
+        <img src="{% static 'img/github.png' %}" alt="GitHub" style="height: max-content ;">
       </a>
 
       <a class="icon-link" href="https://linkedin.com/in/samerrbarakat" target="_blank" rel="noopener">
-        <img src="" alt="LinkedIn">
+        <img src="{% static 'img/linkedin.png' %}" alt="LinkedIn" style="height: max-content;">
       </a>
+
+        <a class="icon-link" href="mailto:samerrbarakat@example.com" target="_blank" rel="noopener">
+            <img src="{% static 'img/gmail.png' %}" alt="Email" style="height: max-content; ">
+        </a>
     </div>
   </footer>
 
