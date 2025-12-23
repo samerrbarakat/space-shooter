@@ -4,10 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{% block title %}Space Shooter{% endblock %}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Stalinist+One&display=swap" rel="stylesheet">
+  <meta name="description" content="Space Shooter - An exciting arcade space shooter game. Battle enemies, collect power-ups, and climb the leaderboard!">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" type="image/png" href="{% static 'img/rocket.png' %}">
+  <title>{% block title %}Space Shooter{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Stalinist+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
   {% block extra_css %}{% endblock %}
@@ -34,7 +37,8 @@
 
   <header class="navbar">
     <a class="brand" href="">
-        <span class="brand-text">SPACE SHOOTER 🚀</span>
+        <span class="brand-text">SPACE SHOOTER </span>
+        <img class="logo" src="{% static 'img/rocket.png' %}" alt="Space Shooter logo" style="height: 40px;">
     </a>
 
     <nav class="nav-links">
@@ -72,5 +76,6 @@
   </footer>
 
   {% block extra_js %}{% endblock %}
+  
 </body>
 </html>

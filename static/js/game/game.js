@@ -19,7 +19,7 @@ window.addEventListener("beforeunload", () => {
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-const player = { x: 380, y: 520, width: 40, height: 40, speed: 8 };
+const player = { x: 380, y: 520, width: 40, height: 40, speed: 5 };
 const keys = {};
 let bullets = [];
 player.lastShot = 0;
@@ -32,7 +32,7 @@ let lives = 3,
   isGameOver = false,
   score = 0;
 let particles = [];
-let bulletspeed = 6.5;
+let bulletspeed = 4;
 
 document.addEventListener("keydown", (e) => {
   if (e.key === " ") {
