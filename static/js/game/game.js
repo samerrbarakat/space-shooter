@@ -26,12 +26,13 @@ player.lastShot = 0;
 player.shootCooldown = 250; // ms
 let enemies = [];
 let lastEnemySpawn = 0;
-let enemySpawnRate = 2000; // ms, will decrease over time
+let enemySpawnRate = 2000;
 let enemyBullets = [];
 let lives = 3,
   isGameOver = false,
   score = 0;
 let particles = [];
+let bulletspeed = 4;
 
 document.addEventListener("keydown", (e) => {
   if (e.key === " ") {
@@ -99,7 +100,7 @@ function tryShoot() {
       y: player.y,
       width: 4,
       height: 15,
-      speed: 5,
+      speed: bulletspeed,
     });
     player.lastShot = now;
     shotsFired++;

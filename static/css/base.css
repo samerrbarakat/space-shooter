@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: 'Outfit', Arial, sans-serif;
+  background: #0d1117;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #0d1117;
+  color: #e4e4e7;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #e4e4e7;
+}
+
+.brand-text{
+  font-family: 'Stalinist One', cursive;
+  font-size: 24px;
+}
+
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #a1a1aa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: #e4e4e7;
+}
+
+.nav-links .btn {
+  background: #7c3aed;
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+.nav-links .btn:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+.page {
+  padding: 16px;
+  min-height: calc(100vh - 120px);
+  background-color: #1a1f3a;
+}
+.page { display: flex; justify-content: center; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #0d1117;
+  color: #a1a1aa;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer-right {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+.icon-link img:hover {
+  opacity: 1;
+  filter: brightness(1.3);
+}
