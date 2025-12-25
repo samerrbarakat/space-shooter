@@ -46,7 +46,11 @@
       <a href="">Leaderboard</a>
       <a href="">Profile</a>
       <a href="">Contact</a>
-      <a class="btn" href="">Logout</a>
+      {% if user.is_authenticated %}
+      <a class="btn" href="{% url 'play' %}">Logout</a>
+      {% else %}
+      <a class="btn" href="{% url 'play' %}">Login / Signup</a>
+      {% endif %}
     </nav>
   </header>
   <!-- Main page content -->
