@@ -8,19 +8,29 @@
 {% endblock %}
 
 {% block content %}
-  <div id="gameContainer">
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
-
-    <div id="ui">
-      <div id="score">Score: 0</div>
-      <div id="lives">Lives: ❤️❤️❤️</div>
+  <div class="game-wrapper">
+    <div class="stats">
+        <h2>Game Stats</h2>
+        <p id="statScore">Score: 0</p>
+        <p id="statLives">Lives: 3</p>
+        <p id="statLevel">Level: 1</p>
     </div>
+    <div id="gameContainer">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-    <div id="gameOver">
-      <h1>GAME OVER</h1>
-      <p>Final Score: <span id="finalScore">0</span></p>
-      <button id="restartBtn" onclick="window.location.reload()">Play Again</button>
+      <div id="ui">
+        <div id="score">Score: 0</div>
+        <div id="lives">Lives: ❤️❤️❤️</div>
+      </div>
+
+      <div id="gameOver">
+        <h1>GAME OVER</h1>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button id="restartBtn" onclick="window.location.reload()">Play Again</button>
+      </div>
     </div>
+    
+    <img id="spaceshipImg" src="{% static 'img/spaceship.png' %}" alt="Spaceship" class="spaceship-display">
   </div>
 {% endblock %}
 
