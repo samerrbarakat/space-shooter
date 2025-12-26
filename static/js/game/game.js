@@ -59,7 +59,7 @@ function movePlayer() {
 
 function drawPlayer() {
   // triangle-ish ship (same style you used)
-  ctx.fillStyle = "#4a4aff";
+  ctx.fillStyle = "#ff3333"; // Red body
   ctx.beginPath();
   ctx.moveTo(player.x + player.width / 2, player.y);
   ctx.lineTo(player.x, player.y + player.height);
@@ -68,8 +68,14 @@ function drawPlayer() {
   ctx.closePath();
   ctx.fill();
 
-  ctx.fillStyle = "#8a8aff";
-  ctx.fillRect(player.x + player.width / 2 - 5, player.y + 15, 10, 10);
+  //  a very good cockpit
+  ctx.fillStyle = "#ff6e6eff"; // Light blue cockpit
+  ctx.beginPath();
+  ctx.moveTo(player.x + player.width / 2, player.y + 5);
+  ctx.lineTo(player.x + 10, player.y + player.height - 10);
+  ctx.lineTo(player.x + player.width - 10, player.y + player.height - 10);
+  ctx.closePath();
+  ctx.fill();
 }
 function update() {
   if (isGameOver) return;
@@ -115,11 +121,11 @@ function updateBullets() {
 }
 
 function drawBullets() {
-  ctx.fillStyle = "#00ff88";
+  ctx.fillStyle = "#66d9ff"; // Light blue
   bullets.forEach((b) => {
     ctx.fillRect(b.x, b.y, b.width, b.height);
     ctx.shadowBlur = 10;
-    ctx.shadowColor = "#00ff88";
+    ctx.shadowColor = "#66d9ff";
     ctx.fillRect(b.x, b.y, b.width, b.height);
     ctx.shadowBlur = 0;
   });
@@ -163,10 +169,31 @@ function updateEnemies() {
 
 function drawEnemies() {
   enemies.forEach((e) => {
-    ctx.fillStyle = "#ff4444";
-    ctx.fillRect(e.x, e.y, e.width, e.height);
-    ctx.fillStyle = "#ff8888";
-    ctx.fillRect(e.x + 5, e.y + 5, e.width - 10, e.height - 10);
+    // Green top half
+    ctx.fillStyle = "#009BA4"; // Green
+    ctx.fillRect(e.x, e.y, e.width, e.height / 2);
+
+    // Purple bottom half
+    ctx.fillStyle = "#9333ea"; // Purple
+    ctx.fillRect(e.x, e.y + e.height / 2, e.width, e.height / 2);
+
+    // Lighter green accent on top
+    ctx.fillStyle = "#4ade80"; // Light green accent
+    ctx.fillRect(e.x + 5, e.y + 5, e.width - 10, e.height / 2 - 5);
+
+    // Lighter purple accent on bottom
+    ctx.fillStyle = "#c084fc";
+    ctx.fillRect(e.x + 5, e.y + e.height / 2, e.width - 10, e.height / 2 - 5);
+
+    // dots for UFO details on bottom half. small and a few
+    ctx.fillStyle = "#b8ff82ff"; // White dots
+    for (let i = 0; i < 3; i++) {
+      const dotX = e.x + 10 + i * ((e.width - 20) / 2);
+      const dotY = e.y + e.height / 2 + e.height / 4;
+      ctx.beginPath();
+      ctx.arc(dotX, dotY, 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
   });
 }
 function intersects(a, b) {
