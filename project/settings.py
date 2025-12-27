@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication settings
 LOGIN_REDIRECT_URL = 'play'  # Where to go after login
-LOGOUT_REDIRECT_URL = ''  # Where to go after logout
+LOGOUT_REDIRECT_URL = 'landing'  # Where to go after logout
 LOGIN_URL = 'login'  # Where to go when @login_required blocks access
 
 

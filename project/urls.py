@@ -23,6 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", TemplateView.as_view(template_name="landing.html"), name="landing"),
     path("game/", include("game.urls")),  # serves game app 
-    path("accounts/", include("django.contrib.auth.urls")),  # serves auth app
     path("accounts/", include("accounts.urls")),  # serves auth app 
 ]
