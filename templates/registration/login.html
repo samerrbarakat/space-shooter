@@ -1,37 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="form-container">
+  <h1 class="form-title">Welcome Back</h1>
+  <p class="form-description">Sign in to continue your space adventure</p>
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+  {% if form.errors %}
+  <div class="form-errors">
+    <p>Your username and password didn't match.</p>
+  </div>
+  {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+  <form method="post">
+    {% csrf_token %}
+    
+    <div class="form-field">
+      <label>Username</label>
+      {{ form.username }}
+    </div>
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+    <div class="form-field">
+      <label>Password</label>
+      {{ form.password }}
+    </div>
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
+    <button type="submit" class="form-btn">Sign In</button>
+  </form>
 
-{# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <div class="form-footer">
+    <a href="{% url 'password_reset' %}" class="form-footer-link">Forgot password?</a>
+    <br>
+    <a href="{% url 'register' %}" class="form-footer-link">Don't have an account? Create one here. </a>
+  </div>
+</div>
 {% endblock %}
