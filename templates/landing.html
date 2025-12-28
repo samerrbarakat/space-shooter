@@ -8,7 +8,96 @@
 {% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-icon">🚀</div>
+    <h1 class="hero-title">SPACE SHOOTER</h1>
+    <p class="hero-tagline">Defend the Galaxy. Dominate the Leaderboard.</p>
+    
+    <div class="hero-cta">
+      <a href="{% url 'play' %}" class="btn-primary">PLAY NOW</a>
+      <a href="#leaderboard" class="btn-ghost">View Leaderboard</a>
+    </div>
+  </div>
+</section>
 
+<!-- Game Preview Section -->
+<section class="game-preview">
+  <div class="container">
+    <h2 class="section-title">Experience The Action</h2>
+    
+    <div class="preview-demo">
+      <div class="demo-placeholder">
+        <div class="demo-icon">🎮</div>
+        <p>Intense Space Combat Awaits</p>
+      </div>
+    </div>
+    
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Fast-Paced Action</h3>
+        <p>Dodge bullets, destroy enemies, survive the chaos</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Global Leaderboard</h3>
+        <p>Compete with players worldwide for the top spot</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Progressive Difficulty</h3>
+        <p>Challenge yourself as enemies get stronger</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Scores Teaser -->
+<section id="leaderboard" class="top-scores">
+  <div class="container">
+    <h2 class="section-title">Top Defenders</h2>
+    <p class="section-subtitle">Can you make it to the top 3?</p>
+    
+    <div class="scores-list">
+      <div class="score-item rank-1">
+        <div class="rank-badge">🥇</div>
+        <div class="score-info">
+          <span class="player-name">SpaceAce</span>
+          <span class="player-score">15,420</span>
+        </div>
+      </div>
+      
+      <div class="score-item rank-2">
+        <div class="rank-badge">🥈</div>
+        <div class="score-info">
+          <span class="player-name">StarHunter</span>
+          <span class="player-score">12,890</span>
+        </div>
+      </div>
+      
+      <div class="score-item rank-3">
+        <div class="rank-badge">🥉</div>
+        <div class="score-info">
+          <span class="player-name">GalaxyGuard</span>
+          <span class="player-score">10,550</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta-register">
+      <p>Ready to compete?</p>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'register' %}" class="btn-primary">Create Free Account</a>
+      {% else %}
+      <a href="{% url 'play' %}" class="btn-primary">Start Playing</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
 {% endblock %}
 
 {% block extra_js %}
