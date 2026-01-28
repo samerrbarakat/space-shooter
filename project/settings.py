@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8@_m&xsbhm(idamgw!b$+-47b&-64h4i^y%+%m-@mbbv!s8&u)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = False 
 
 ALLOWED_HOSTS = ["spaceshooter.azurewebsites.net", "localhost", "127.0.0.1"]
 
