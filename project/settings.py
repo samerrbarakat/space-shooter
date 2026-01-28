@@ -33,13 +33,14 @@ ALLOWED_HOSTS = ["spaceshooter.azurewebsites.net", "localhost", "127.0.0.1"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'game', 
     'accounts',
-    "whitenoise.runserver_nostatic",  # <- to serve static files in development
+    'whitenoise.runserver_nostatic',  # <- to serve static files in development
 ]
 
 MIDDLEWARE = [
