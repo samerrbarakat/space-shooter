@@ -30,10 +30,17 @@
       </div>
     </div>
     
-    <img id="spaceshipImg" src="{% static 'img/spaceship.png' %}" alt="Spaceship" class="spaceship-display">
+    <div class="spaceship-display">
+      <img id="spaceshipImg" src="{% static 'img/spaceship.png' %}" alt="Spaceship" class="spaceship-img">
+    </div>
   </div>
 {% endblock %}
 
 {% block extra_js %}
+  <script>
+    // mark page so CSS can disable scrolling and apply game-only layout
+    document.documentElement.classList.add('game-active');
+    document.body.classList.add('game-active');
+  </script>
   <script src="{% static 'js/game/game.js' %}" defer></script>
 {% endblock %}
