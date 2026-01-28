@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'game',
-    'accounts',
     "whitenoise.runserver_nostatic",  # <- to serve static files in development
 ]
 
